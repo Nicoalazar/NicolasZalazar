@@ -9,3 +9,6 @@ desktop.ini
 
 # Configuración local del editor
 .vscode/
+
+# Configuración local de la vista previa
+.claude/
