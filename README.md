@@ -227,9 +227,11 @@ primer contacto con la herramienta.
   colorido, tipografía que no fuera la genérica de todos los portafolios, y nada de emojis en el
   sitio, el README ni los mensajes de commit.
 
-**Imágenes:** la foto del hero es una foto propia; solo se recortó a formato cuadrado y se optimizó
-para web. **No hay imágenes generadas ni intervenidas con IA en este proyecto.** La captura de
-tuConsulta.com.ar es del sitio real, tomado del proyecto que desarrollé.
+**Imágenes:** la foto del hero es una foto propia. Se recortó a formato cuadrado, se optimizó para
+web y se le corrigió el balance de blancos, porque la original tenía luz mixta: la pared cálida y mi
+cara con un dominante azulado. La corrección es un ajuste clásico de ganancia por canal aplicado con
+un script de Pillow, no un retoque con IA generativa. **No hay imágenes generadas ni recreadas con
+IA en este proyecto.** La captura de tuConsulta.com.ar es del sitio real que desarrollé.
 
 ---
 
