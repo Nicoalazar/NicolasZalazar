@@ -153,8 +153,11 @@ permanente, y un número de teléfono indexado no se puede "despublicar".
 ### Proyectos enlazados
 
 - **tuConsulta.com.ar** enlaza al sitio en producción, no a un repositorio, porque su código es privado.
-- **seprice-turnos**, **seprice-api** y **club-deportivo-mobile** enlazan a sus repositorios públicos.
-- Solo hay dos imágenes reales en el sitio: mi foto y la captura de tuConsulta. Los otros tres
+- **seprice-turnos**, **seprice-api**, **club-deportivo-mobile** y **club-deportivo-dotnet** enlazan a
+  sus repositorios públicos. Este último es un proyecto colaborativo (sistema de escritorio en C# y
+  .NET con WinForms para la gestión de un club deportivo), y la tarjeta lo aclara explícitamente para
+  no dar a entender que es un trabajo individual.
+- Solo hay dos imágenes reales en el sitio: mi foto y la captura de tuConsulta. Los otros cuatro
   proyectos usan portadas construidas con CSS (gradiente e iniciales), para no descargar imágenes de
   terceros ni inventar capturas de pantalla que no existen.
 
@@ -218,8 +221,9 @@ primer contacto con la herramienta.
 **Qué revisé y adapté con mi propio criterio:**
 
 - **Contenido y datos reales.** Definí yo qué proyectos mostrar (tuConsulta.com.ar, seprice-turnos,
-  seprice-api y club-deportivo-mobile), qué tecnologías listar según lo que realmente uso, y qué
-  datos de contacto se publican y cuáles no: descarté publicar mi teléfono en un repositorio público.
+  seprice-api, club-deportivo-mobile y club-deportivo-dotnet), qué tecnologías listar según lo que
+  realmente uso, y qué datos de contacto se publican y cuáles no: descarté publicar mi teléfono en un
+  repositorio público.
   Ningún dato del sitio es genérico ni inventado; todo sale de mi CV y de mis repositorios.
 - **Revisión del código generado.** Leí el HTML y el CSS antes de aceptarlos, probé el sitio en el
   navegador y pedí ajustes cuando algo no me cerraba, por ejemplo el comportamiento del encabezado
