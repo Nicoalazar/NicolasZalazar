@@ -9,6 +9,7 @@
    4. Componentes
    5. Maquetación con Flexbox y Grid
    6. Media queries
+   7. Interactividad, transiciones y animaciones
    ========================================================================== */
 
 /* -----------------------------------------------------------------------------
@@ -69,6 +70,12 @@
 
   --measure: 62ch;
   --container: 72rem;
+
+  /* Movimiento: una sola curva y dos duraciones para todo el sitio, así las
+     interacciones se sienten parte del mismo sistema. */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur-slow: 640ms;
 }
 
 /* -----------------------------------------------------------------------------
@@ -741,5 +748,244 @@ strong {
 
   .form {
     padding: var(--space-lg);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   7. INTERACTIVIDAD, TRANSICIONES Y ANIMACIONES
+   Tres capas de movimiento, todas con la misma curva y duración:
+   a) entrada del hero, escalonada con animation-delay;
+   b) transiciones de estado en enlaces, botones y tarjetas;
+   c) revelado de las tarjetas al entrar en pantalla, resuelto con scroll-driven
+      animations (animation-timeline: view()) para no necesitar JavaScript.
+   El bloque final respeta prefers-reduced-motion y lo desactiva todo.
+   -------------------------------------------------------------------------- */
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brotar {
+  from {
+    opacity: 0;
+    transform: scale(0.94) rotate(-1.5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes flotar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-0.4rem);
+  }
+}
+
+/* a) Entrada del hero: el mismo keyframe con retardos crecientes arma la lectura
+      en cascada (antetítulo, título, ubicación, párrafos, botones). */
+.hero__content > * {
+  animation: surgir var(--dur-slow) var(--ease-out) backwards;
+}
+
+.hero__content > *:nth-child(1) {
+  animation-delay: 60ms;
+}
+
+.hero__content > *:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.hero__content > *:nth-child(3) {
+  animation-delay: 220ms;
+}
+
+.hero__content > *:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.hero__content > *:nth-child(5) {
+  animation-delay: 380ms;
+}
+
+.hero__content > *:nth-child(6) {
+  animation-delay: 460ms;
+}
+
+.hero__figure {
+  animation: brotar var(--dur-slow) var(--ease-out) 260ms backwards;
+}
+
+.hero__badge {
+  animation: flotar 3.2s var(--ease-out) 1.2s infinite alternate;
+}
+
+/* b) Transiciones de estado */
+.skip-link,
+.btn,
+.chip,
+.project,
+.skill-card,
+.contact__item,
+.form__input,
+.nav__link,
+.link-arrow,
+.site-footer a {
+  transition: color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+/* Subrayado que crece desde la izquierda: el enlace activo lo muestra siempre. */
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.2rem;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--color-primary);
+}
+
+.nav__link:hover::after,
+.nav__link:focus-visible::after,
+.nav__link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.skill-card:hover,
+.contact__item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.chip:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.chips--tech .chip:hover {
+  background-color: var(--color-teal);
+  color: #ffffff;
+}
+
+/* La flecha se desplaza al pasar el cursor: refuerza el "hacia dónde lleva". */
+.link-arrow .icon {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.link-arrow:hover .icon,
+.link-arrow:focus-visible .icon {
+  transform: translateX(0.35rem);
+}
+
+.form__input:hover {
+  border-color: var(--color-primary);
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+/* Foco visible y consistente en todo lo que se puede recorrer con teclado. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* c) Revelado al hacer scroll, solo si el navegador soporta la línea de tiempo
+      de vista. Donde no está soportado, las tarjetas se ven normalmente. */
+@supports (animation-timeline: view()) {
+  .skill-card,
+  .project,
+  .contact__item,
+  .form {
+    animation: surgir var(--dur-slow) var(--ease-out) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+}
+
+/* Respeto por quien prefiere menos movimiento: se apagan animaciones, el scroll
+   suave y los desplazamientos de hover, y se conservan los cambios de color. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:hover,
+  .project:hover,
+  .skill-card:hover,
+  .contact__item:hover,
+  .link-arrow:hover .icon {
+    transform: none;
   }
 }
