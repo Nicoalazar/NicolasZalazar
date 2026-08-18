@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicolás Joel Zalazar | Desarrollador Full Stack Junior</title>
+  <meta name="description"
+    content="Portafolio de Nicolás Joel Zalazar, desarrollador full stack junior en Buenos Aires. Angular, Node.js, TypeScript y NestJS. Proyectos, habilidades y contacto.">
+  <meta name="author" content="Nicolás Joel Zalazar">
+
+  <!-- Google Fonts se vincula con <link> y no con @import para que la descarga arranque en paralelo
+       con el CSS; preconnect abre la conexión a los dos dominios de Fonts antes de pedir el archivo.
+       Fraunces y Public Sans son fuentes variables: se piden los rangos de peso completos para poder
+       ajustar la jerarquía tipográfica desde el CSS sin sumar pedidos extra. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Public+Sans:wght@400..800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- El enlace de salto es el primer elemento enfocable del documento: permite que quien navega con
+       teclado o lector de pantalla se saltee el encabezado repetido y vaya directo al contenido. -->
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#inicio">
+        <span class="brand__initials" aria-hidden="true">NZ</span>
+        <span class="brand__name">Nicolás Joel Zalazar</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#inicio" aria-current="page">Inicio</a></li>
+          <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
+          <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--ghost btn--icon" href="https://github.com/nicoalazar" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" focusable="false">
+          <path fill="currentColor"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+        </svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- Cada bloque temático es una <section> con id propio (destino de la navegación interna) y se
+         asocia a su encabezado mediante aria-labelledby, para que el lector de pantalla anuncie la
+         región por su título real en lugar de leer "región sin nombre". -->
+    <section class="hero" id="inicio" aria-labelledby="inicio-titulo">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Desarrollador Full Stack Junior</p>
+        <h1 class="hero__title" id="inicio-titulo">Nicolás Joel Zalazar</h1>
+        <p class="hero__location">
+          <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor"
+              d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+          </svg>
+          Buenos Aires, Argentina
+        </p>
+        <p class="hero__text">
+          Trabajo en el <strong>Hospital de Clínicas José de San Martín</strong>, donde desarrollo funcionalidades
+          front-end con Angular y back-end con Node.js y AdonisJS para sistemas internos que usan más de 200 personas
+          todos los días.
+        </p>
+        <p class="hero__text">
+          Estudio la <strong>Tecnicatura en Desarrollo de Software</strong> en el IFTS N°29 y, en paralelo, construyo
+          mis propios proyectos. Uno de ellos, tuConsulta.com.ar, ya está en producción.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#contacto">Contactame</a>
+          <a class="btn btn--ghost" href="#proyectos">Ver proyectos</a>
+        </div>
+      </div>
+
+      <figure class="hero__figure">
+        <img class="hero__photo" src="assets/img/nicolas-zalazar.jpg" width="440" height="440"
+          alt="Retrato de Nicolás Joel Zalazar, desarrollador full stack junior">
+        <figcaption class="hero__badge">
+          <span class="hero__badge-value">2023</span>
+          <span class="hero__badge-label">programando en el sector salud</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="habilidades" aria-labelledby="habilidades-titulo">
+      <header class="section__header">
+        <p class="section__eyebrow">01 — Stack</p>
+        <h2 class="section__title" id="habilidades-titulo">Habilidades</h2>
+        <p class="section__lead">
+          Tecnologías que uso a diario en el hospital, en la Tecnicatura y en mis proyectos personales.
+        </p>
+      </header>
+
+      <!-- La grilla de habilidades usa CSS Grid con auto-fit: la cantidad de columnas la decide el
+           ancho disponible, así que el bloque se reacomoda solo sin depender de media queries. -->
+      <ul class="skills">
+        <li class="skill-card">
+          <h3 class="skill-card__title">Lenguajes</h3>
+          <ul class="chips">
+            <li class="chip">JavaScript</li>
+            <li class="chip">TypeScript</li>
+            <li class="chip">HTML</li>
+            <li class="chip">CSS</li>
+            <li class="chip">SQL</li>
+          </ul>
+        </li>
+        <li class="skill-card">
+          <h3 class="skill-card__title">Frameworks y librerías</h3>
+          <ul class="chips">
+            <li class="chip">Angular</li>
+            <li class="chip">Node.js</li>
+            <li class="chip">AdonisJS</li>
+            <li class="chip">NestJS</li>
+            <li class="chip">React</li>
+            <li class="chip">Next.js</li>
+            <li class="chip">RxJS</li>
+          </ul>
+        </li>
+        <li class="skill-card">
+          <h3 class="skill-card__title">Bases de datos</h3>
+          <ul class="chips">
+            <li class="chip">MySQL</li>
+            <li class="chip">PL/SQL</li>
+            <li class="chip">Prisma</li>
+            <li class="chip">Supabase</li>
+            <li class="chip">MongoDB</li>
+          </ul>
+        </li>
+        <li class="skill-card">
+          <h3 class="skill-card__title">Herramientas</h3>
+          <ul class="chips">
+            <li class="chip">Git y GitHub</li>
+            <li class="chip">Línea de comandos</li>
+            <li class="chip">Power BI</li>
+            <li class="chip">Excel avanzado</li>
+          </ul>
+        </li>
+        <li class="skill-card">
+          <h3 class="skill-card__title">Metodologías</h3>
+          <ul class="chips">
+            <li class="chip">Scrum</li>
+            <li class="chip">Kanban</li>
+          </ul>
+        </li>
+        <li class="skill-card skill-card--accent">
+          <h3 class="skill-card__title">Aprendiendo ahora</h3>
+          <ul class="chips">
+            <li class="chip">Kotlin</li>
+            <li class="chip">C# y .NET</li>
+            <li class="chip">Inglés A2 hacia B1</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="proyectos" aria-labelledby="proyectos-titulo">
+      <header class="section__header">
+        <p class="section__eyebrow">02 — Sección personal</p>
+        <h2 class="section__title" id="proyectos-titulo">Proyectos destacados</h2>
+        <p class="section__lead">
+          Cuatro proyectos propios, todos con código o producto navegable.
+        </p>
+      </header>
+
+      <div class="projects">
+        <article class="project project--featured">
+          <img class="project__shot" src="assets/img/tuconsulta.jpg" width="800" height="500" loading="lazy"
+            alt="Captura de la página principal de tuConsulta.com.ar con el buscador de profesionales de la salud">
+          <div class="project__body">
+            <p class="project__status">En producción</p>
+            <h3 class="project__title">tuConsulta.com.ar</h3>
+            <p class="project__text">
+              Directorio de profesionales de la salud verificados en Argentina. Búsqueda por especialidad, provincia y
+              modalidad, perfiles dinámicos con SEO, alta de profesionales en seis pasos y panel de administración.
+            </p>
+            <ul class="chips chips--tech">
+              <li class="chip">Next.js</li>
+              <li class="chip">React</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">Prisma</li>
+              <li class="chip">Supabase</li>
+            </ul>
+            <a class="link-arrow" href="https://tuconsulta.com.ar" target="_blank" rel="noopener">
+              Visitar el sitio
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M5 11h11.17l-4.88-4.88L12.7 4.7 20 12l-7.3 7.3-1.41-1.42L16.17 13H5Z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project__cover" aria-hidden="true"><span>ST</span></p>
+          <div class="project__body">
+            <p class="project__status">Repositorio público</p>
+            <h3 class="project__title">seprice-turnos</h3>
+            <p class="project__text">
+              Sistema que cubre el circuito completo de consultorios externos, desde el pedido del turno hasta la
+              atención del paciente.
+            </p>
+            <ul class="chips chips--tech">
+              <li class="chip">TypeScript</li>
+            </ul>
+            <a class="link-arrow" href="https://github.com/nicoalazar/seprice-turnos" target="_blank" rel="noopener">
+              Ver el código
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M5 11h11.17l-4.88-4.88L12.7 4.7 20 12l-7.3 7.3-1.41-1.42L16.17 13H5Z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project__cover" aria-hidden="true"><span>SA</span></p>
+          <div class="project__body">
+            <p class="project__status">Repositorio público</p>
+            <h3 class="project__title">seprice-api</h3>
+            <p class="project__text">
+              Back-end del sistema de turnos: API REST con autenticación, modelo de datos y capa de servicios.
+            </p>
+            <ul class="chips chips--tech">
+              <li class="chip">NestJS</li>
+              <li class="chip">Prisma</li>
+              <li class="chip">Supabase</li>
+            </ul>
+            <a class="link-arrow" href="https://github.com/nicoalazar/seprice-api" target="_blank" rel="noopener">
+              Ver el código
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M5 11h11.17l-4.88-4.88L12.7 4.7 20 12l-7.3 7.3-1.41-1.42L16.17 13H5Z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project__cover" aria-hidden="true"><span>CD</span></p>
+          <div class="project__body">
+            <p class="project__status">Repositorio público</p>
+            <h3 class="project__title">club-deportivo-mobile</h3>
+            <p class="project__text">
+              Aplicación Android para la gestión de un club deportivo: socios, actividades y cuotas.
+            </p>
+            <ul class="chips chips--tech">
+              <li class="chip">Kotlin</li>
+              <li class="chip">Android</li>
+            </ul>
+            <a class="link-arrow" href="https://github.com/nicoalazar/club-deportivo-mobile" target="_blank"
+              rel="noopener">
+              Ver el código
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M5 11h11.17l-4.88-4.88L12.7 4.7 20 12l-7.3 7.3-1.41-1.42L16.17 13H5Z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contacto" aria-labelledby="contacto-titulo">
+      <header class="section__header">
+        <p class="section__eyebrow">03 — Contacto</p>
+        <h2 class="section__title" id="contacto-titulo">Hablemos</h2>
+        <p class="section__lead">
+          Estoy abierto a propuestas de trabajo y a colaborar en proyectos. La vía más rápida es el correo.
+        </p>
+      </header>
+
+      <div class="contact">
+        <ul class="contact__list">
+          <li class="contact__item">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7.2 8-5V6H4v.2l8 5Z" />
+            </svg>
+            <span class="contact__label">Correo</span>
+            <a class="contact__value" href="mailto:nicozalazar67@gmail.com">nicozalazar67@gmail.com</a>
+          </li>
+          <li class="contact__item">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.76-1.95C20.7 8.75 22 10.9 22 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.05-3.34-2.06 0-2.38 1.6-2.38 3.24V21H9V9Z" />
+            </svg>
+            <span class="contact__label">LinkedIn</span>
+            <a class="contact__value" href="https://linkedin.com/in/nicolasjoelzalazar" target="_blank"
+              rel="noopener">in/nicolasjoelzalazar</a>
+          </li>
+          <li class="contact__item">
+            <svg class="icon icon--lg" viewBox="0 0 16 16" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+            </svg>
+            <span class="contact__label">GitHub</span>
+            <a class="contact__value" href="https://github.com/nicoalazar" target="_blank"
+              rel="noopener">github.com/nicoalazar</a>
+          </li>
+          <li class="contact__item">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+            </svg>
+            <span class="contact__label">Ubicación</span>
+            <span class="contact__value">Buenos Aires, Argentina</span>
+          </li>
+        </ul>
+
+        <!-- El formulario es una maqueta: no tiene back-end, así que cada control lleva su <label for>
+             asociado y el aviso de que todavía no se envía nada se marca con role="note", en vez de
+             simular un envío que no existe. -->
+        <form class="form" action="#" method="post" aria-labelledby="form-titulo">
+          <h3 class="form__title" id="form-titulo">Escribime un mensaje</h3>
+
+          <div class="form__field">
+            <label class="form__label" for="nombre">Nombre y apellido</label>
+            <input class="form__input" type="text" id="nombre" name="nombre" placeholder="Cómo te llamás"
+              autocomplete="name" required>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="email">Correo electrónico</label>
+            <input class="form__input" type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com"
+              autocomplete="email" required>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="mensaje">Mensaje</label>
+            <textarea class="form__input form__input--area" id="mensaje" name="mensaje" rows="5"
+              placeholder="Contame en qué estás pensando" required></textarea>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">Enviar mensaje</button>
+
+          <p class="form__note" role="note">
+            Esta PFO1 es solo HTML y CSS: el formulario es una maqueta y todavía no envía nada. Para que me llegue de
+            verdad, escribime a <a href="mailto:nicozalazar67@gmail.com">nicozalazar67@gmail.com</a>.
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">&copy; 2026 Nicolás Joel Zalazar</p>
+      <p class="site-footer__meta">PFO1 — Desarrollo de Sistemas Web, Front End. IFTS N°29.</p>
+      <ul class="site-footer__links">
+        <li><a href="https://github.com/nicoalazar" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nicolasjoelzalazar" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:nicozalazar67@gmail.com">Correo</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
