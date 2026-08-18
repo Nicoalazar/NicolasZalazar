@@ -26,11 +26,11 @@ Es la entrega **PFO1** de la materia Desarrollo de Sistemas Web, Front End (IFTS
 
 ## Demo
 
-**URL publicada en Vercel:** _(pendiente de despliegue)_
+**URL publicada en Vercel:** https://landing-portafolio-personal.vercel.app/
 
-**Repositorio:** https://github.com/nicoalazar
+**Repositorio:** https://github.com/Nicoalazar/landing-portafolio-personal
 
-_(La captura del sitio se agrega junto con la URL de Vercel.)_
+![Captura de la landing publicada en Vercel](assets/img/captura-deploy.jpg)
 
 ---
 
