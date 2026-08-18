@@ -11,12 +11,13 @@
 
   <!-- Google Fonts se vincula con <link> y no con @import para que la descarga arranque en paralelo
        con el CSS; preconnect abre la conexión a los dos dominios de Fonts antes de pedir el archivo.
-       Fraunces y Public Sans son fuentes variables: se piden los rangos de peso completos para poder
-       ajustar la jerarquía tipográfica desde el CSS sin sumar pedidos extra. -->
+       Fraunces y Public Sans son fuentes variables: de Fraunces se piden además los ejes opsz, SOFT y
+       WONK, que el CSS usa para diferenciar el tamaño óptico y el carácter de cada nivel de título
+       sin descargar un archivo por variante. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Public+Sans:wght@400..800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Public+Sans:wght@400..800&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">

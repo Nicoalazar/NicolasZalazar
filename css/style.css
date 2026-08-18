@@ -1,0 +1,422 @@
+/* =============================================================================
+   Landing de portafolio personal - Nicolás Joel Zalazar
+   PFO1 | Desarrollo de Sistemas Web, Front End
+
+   Orden del archivo:
+   1. Tokens de diseño (variables CSS)
+   2. Reset ligero y bases
+   3. Tipografía
+   4. Componentes
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   1. TOKENS DE DISEÑO
+   Todo el sistema visual vive en :root. Ningún color, radio ni sombra se escribe
+   suelto más abajo: así la paleta se cambia en un solo lugar y queda documentada.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta clara y colorida. El violeta es el color de marca; coral, ámbar y
+     verde azulado se reservan para acentos puntuales, para que el color destaque
+     jerarquía y no compita consigo mismo. */
+  --color-bg: #fffaf3;
+  --color-bg-alt: #f6f0ff;
+  --color-surface: #ffffff;
+  --color-ink: #16151f;
+  --color-ink-soft: #4a4860;
+  --color-primary: #5b2cd9;
+  --color-primary-dark: #43209f;
+  --color-primary-soft: #ede6ff;
+  --color-coral: #d62246;
+  --color-coral-soft: #ffe8ec;
+  --color-amber: #ffb703;
+  --color-teal: #0b7a7a;
+  --color-teal-soft: #e0f4f3;
+  --color-border: #e6dfd4;
+
+  /* Tipografías: Fraunces (serif variable) para títulos, Public Sans para texto.
+     Se evitan a propósito las familias por defecto de todo portafolio. */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Escala tipográfica fluida: cada paso interpola entre el tamaño de 320px y el
+     de 1280px, de modo que el texto acompaña al viewport sin saltos bruscos. */
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.13rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.45rem, 1.25rem + 1vw, 2.1rem);
+  --step-3: clamp(1.8rem, 1.4rem + 2vw, 3rem);
+  --step-4: clamp(2.4rem, 1.6rem + 4vw, 4.5rem);
+
+  /* Escala de espaciado en rem: respeta el tamaño de fuente del navegador. */
+  --space-2xs: 0.35rem;
+  --space-xs: 0.6rem;
+  --space-sm: 1rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.6rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --radius-pill: 999rem;
+
+  --shadow-sm: 0 1px 2px rgba(22, 21, 31, 0.06), 0 2px 8px rgba(22, 21, 31, 0.05);
+  --shadow-md: 0 6px 16px rgba(22, 21, 31, 0.08), 0 2px 4px rgba(22, 21, 31, 0.04);
+  --shadow-lg: 0 18px 40px rgba(91, 44, 217, 0.14), 0 4px 12px rgba(22, 21, 31, 0.06);
+
+  --measure: 62ch;
+  --container: 72rem;
+}
+
+/* -----------------------------------------------------------------------------
+   2. RESET LIGERO Y BASES
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+figure,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compensa la altura del encabezado fijo al saltar por anclas. */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: var(--color-primary-dark);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* El enlace de salto solo aparece cuando recibe foco por teclado. */
+.skip-link {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 20;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* -----------------------------------------------------------------------------
+   3. TIPOGRAFÍA
+   Fraunces es variable: además del peso se ajustan sus ejes opsz (tamaño óptico),
+   SOFT (redondeo de los remates) y WONK (variantes caligráficas de la g y la y).
+   El h1 usa opsz alto y WONK activo para ganar carácter; los h2 y h3 bajan el
+   opsz y apagan WONK, así se leen como títulos de servicio y no compiten con él.
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-4);
+  font-weight: 700;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--step-3);
+  font-weight: 600;
+  font-variation-settings: "opsz" 72, "SOFT" 20, "WONK" 0;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+  font-variation-settings: "opsz" 24, "SOFT" 0, "WONK" 0;
+}
+
+p {
+  max-width: var(--measure);
+}
+
+strong {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+/* Antetítulos: versalitas de Public Sans, el contrapunto sobrio de Fraunces. */
+.hero__eyebrow,
+.section__eyebrow,
+.project__status,
+.contact__label,
+.form__label {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__eyebrow,
+.section__eyebrow {
+  color: var(--color-primary);
+}
+
+.section__lead {
+  font-size: var(--step-1);
+  color: var(--color-ink-soft);
+  font-weight: 400;
+}
+
+.hero__text {
+  color: var(--color-ink-soft);
+}
+
+/* -----------------------------------------------------------------------------
+   4. COMPONENTES
+   -------------------------------------------------------------------------- */
+
+/* Encabezado y navegación */
+.site-header {
+  background-color: rgba(255, 250, 243, 0.9);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  color: var(--color-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand__initials {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 24, "SOFT" 0, "WONK" 0;
+  letter-spacing: 0.02em;
+}
+
+.nav__link {
+  color: var(--color-ink-soft);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav__link[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+/* Botones */
+.btn {
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0.7em 1.4em;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.btn--ghost {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-ink);
+}
+
+/* Secciones */
+.section__title {
+  color: var(--color-ink);
+}
+
+/* Tarjetas de habilidades */
+.skill-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.skill-card--accent {
+  background-color: var(--color-primary-soft);
+  border-color: transparent;
+}
+
+.skill-card__title {
+  margin-bottom: var(--space-sm);
+}
+
+/* Chips de tecnologías */
+.chip {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-pill);
+  padding: 0.3em 0.85em;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.chips--tech .chip {
+  background-color: var(--color-teal-soft);
+  color: var(--color-teal);
+}
+
+/* Tarjetas de proyectos */
+.project {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.project__body {
+  padding: var(--space-md);
+}
+
+.project__status {
+  color: var(--color-teal);
+  margin-bottom: var(--space-2xs);
+}
+
+.project--featured .project__status {
+  color: var(--color-coral);
+}
+
+.project__text {
+  color: var(--color-ink-soft);
+}
+
+/* Portada tipográfica para los proyectos sin captura propia: evita usar
+   imágenes de terceros y mantiene la coherencia de la paleta. */
+.project__cover {
+  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-coral) 100%);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 1;
+}
+
+.link-arrow {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Contacto y formulario */
+.contact__item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.contact__label {
+  color: var(--color-ink-soft);
+}
+
+.contact__value {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.form {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-md);
+}
+
+.form__title {
+  margin-bottom: var(--space-sm);
+}
+
+.form__input {
+  width: 100%;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65em 0.9em;
+}
+
+.form__input::placeholder {
+  color: #6f6d85;
+}
+
+.form__note {
+  font-size: var(--step--1);
+  color: var(--color-ink-soft);
+}
+
+/* Pie */
+.site-footer {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.site-footer a {
+  color: var(--color-bg);
+  font-weight: 600;
+}
+
+.site-footer__meta {
+  color: #b9b6cc;
+  font-size: var(--step--1);
+}
