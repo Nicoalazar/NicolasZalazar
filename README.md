@@ -26,9 +26,9 @@ Es la entrega **PFO1** de la materia Desarrollo de Sistemas Web, Front End (IFTS
 
 ## Demo
 
-**URL publicada en Vercel:** https://landing-portafolio-personal.vercel.app/
+**URL publicada en Vercel:** https://nicolas-zalazar.vercel.app/
 
-**Repositorio:** https://github.com/Nicoalazar/landing-portafolio-personal
+**Repositorio:** https://github.com/Nicoalazar/NicolasZalazar
 
 ![Captura de la landing publicada en Vercel](assets/img/captura-deploy.jpg)
 
@@ -184,7 +184,7 @@ permanente, y un número de teléfono indexado no se puede "despublicar".
 Al ser un sitio estático sin dependencias, alcanza con abrir el archivo:
 
 ```bash
-git clone https://github.com/nicoalazar/landing-portafolio-personal.git
+git clone https://github.com/Nicoalazar/NicolasZalazar
 ```
 
 Después se puede abrir `index.html` directamente en el navegador, o levantar un servidor local para
@@ -200,7 +200,7 @@ Y entrar a `http://localhost:4321`.
 
 ## Declaración de uso de IA
 
-**Herramienta utilizada:** Claude Code (Anthropic), modelo Claude Opus, ejecutado desde la terminal
+**Herramienta utilizada:** Claude Code (Anthropic), modelo Sonnet 5, ejecutado desde la terminal
 sobre la carpeta del proyecto.
 
 **Plan:** pago, Claude Pro (USD 20 por mes).
