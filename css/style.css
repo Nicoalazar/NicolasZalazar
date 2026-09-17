@@ -1,6 +1,5 @@
 /* =============================================================================
    Landing de portafolio personal - Nicolás Joel Zalazar
-   PFO1 | Desarrollo de Sistemas Web, Front End
 
    Orden del archivo:
    1. Tokens de diseño (variables CSS)
@@ -412,6 +411,16 @@ strong {
 .form__note {
   font-size: var(--step--1);
   color: var(--color-ink-soft);
+}
+
+/* Honeypot anti-spam: oculto para personas (visual y lectores de pantalla), visible para bots. */
+.form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 /* Pie */

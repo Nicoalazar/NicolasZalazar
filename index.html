@@ -341,10 +341,16 @@
           </li>
         </ul>
 
-        <!-- El formulario es una maqueta: no tiene back-end, así que cada control lleva su <label for>
-             asociado y el aviso de que todavía no se envía nada se marca con role="note", en vez de
-             simular un envío que no existe. -->
-        <form class="form" action="#" method="post" aria-labelledby="form-titulo">
+        <!-- El envío lo maneja Web3Forms (https://web3forms.com): un POST directo desde el <form>,
+             sin JavaScript ni backend propio. access_key identifica la cuenta que recibe el correo;
+             botcheck es un honeypot anti-spam (queda oculto para personas, los bots sí lo completan). -->
+        <form class="form" action="https://api.web3forms.com/submit" method="post" aria-labelledby="form-titulo">
+          <input type="hidden" name="access_key" value="917b6d91-acd8-41ab-8b53-dee51166b318">
+          <input type="hidden" name="subject" value="Nuevo mensaje desde el portfolio">
+          <input type="hidden" name="redirect" value="https://nicolas-zalazar.vercel.app/gracias.html">
+          <input class="form__honeypot" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"
+            aria-hidden="true">
+
           <h3 class="form__title" id="form-titulo">Escribime un mensaje</h3>
 
           <div class="form__field">
@@ -368,8 +374,8 @@
           <button class="btn btn--primary btn--block" type="submit">Enviar mensaje</button>
 
           <p class="form__note" role="note">
-            Esta PFO1 es solo HTML y CSS: el formulario es una maqueta y todavía no envía nada. Para que me llegue de
-            verdad, escribime a <a href="mailto:nicozalazar67@gmail.com">nicozalazar67@gmail.com</a>.
+            Tu mensaje me llega directo al correo. También podés escribirme a
+            <a href="mailto:nicozalazar67@gmail.com">nicozalazar67@gmail.com</a>.
           </p>
         </form>
       </div>
@@ -380,7 +386,6 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <p class="site-footer__copy">&copy; 2026 Nicolás Joel Zalazar</p>
-      <p class="site-footer__meta">PFO1 — Desarrollo de Sistemas Web, Front End. IFTS N°29.</p>
       <ul class="site-footer__links">
         <li><a href="https://github.com/nicoalazar" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://linkedin.com/in/nicolasjoelzalazar" target="_blank" rel="noopener">LinkedIn</a></li>
