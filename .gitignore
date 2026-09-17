@@ -12,3 +12,6 @@ desktop.ini
 
 # Configuración local de la vista previa
 .claude/
+
+# Guía local para Claude Code
+CLAUDE.md
