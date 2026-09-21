@@ -45,7 +45,7 @@ busca cuando entra al portafolio de un desarrollador junior, porque muestra cód
 en lugar de declaraciones sobre mí mismo.
 
 Todo el contenido del sitio es real: el puesto en el Hospital de Clínicas José de San Martín, la
-Tecnicatura en curso, el stack que uso y los cuatro proyectos enlazados.
+Tecnicatura en curso, el stack que uso y los seis proyectos enlazados.
 
 ---
 
@@ -74,7 +74,8 @@ Sin JavaScript, sin frameworks y sin dependencias: el sitio es exactamente lo qu
 ├── assets/
 │   └── img/
 │       ├── nicolas-zalazar.jpg   Foto propia, recortada y optimizada
-│       └── tuconsulta.jpg        Captura del proyecto en producción
+│       ├── tuconsulta.jpg        Captura del primer proyecto en producción
+│       └── estas-invitado.jpg    Captura del segundo proyecto en producción
 ├── .gitignore
 └── README.md
 ```
@@ -153,20 +154,25 @@ permanente, y un número de teléfono indexado no se puede "despublicar".
 ### Proyectos enlazados
 
 - **tuConsulta.com.ar** enlaza al sitio en producción, no a un repositorio, porque su código es privado.
+- **estas-invitado.click** también enlaza al sitio en producción por el mismo motivo. Es un servicio de
+  invitaciones digitales para casamientos con confirmación de asistencia, construido con Laravel,
+  Tailwind CSS y Alpine.js. El código lo generó íntegramente Claude Code a partir de mis indicaciones;
+  la tarjeta lo aclara ("desarrollado con IA") y por eso su stack no figura en Habilidades: lo que es
+  mío es el producto, el flujo de confirmaciones y el deploy, no el dominio de Laravel.
 - **seprice-turnos**, **seprice-api**, **club-deportivo-mobile** y **club-deportivo-dotnet** enlazan a
   sus repositorios públicos. Este último es un proyecto colaborativo (sistema de escritorio en C# y
   .NET con WinForms para la gestión de un club deportivo), y la tarjeta lo aclara explícitamente para
   no dar a entender que es un trabajo individual.
-- Solo hay dos imágenes reales en el sitio: mi foto y la captura de tuConsulta. Los otros cuatro
-  proyectos usan portadas construidas con CSS (gradiente e iniciales), para no descargar imágenes de
-  terceros ni inventar capturas de pantalla que no existen.
+- Solo hay tres imágenes reales en el sitio: mi foto y las capturas de tuConsulta y de Estás Invitado.
+  Los otros cuatro proyectos usan portadas construidas con CSS (gradiente e iniciales), para no
+  descargar imágenes de terceros ni inventar capturas de pantalla que no existen.
 
 ---
 
 ## Accesibilidad
 
 - Enlace de salto al contenido principal como primer elemento enfocable del documento.
-- Las dos imágenes tienen `alt` descriptivo; los iconos SVG decorativos van con `aria-hidden="true"`
+- Las tres imágenes tienen `alt` descriptivo; los iconos SVG decorativos van con `aria-hidden="true"`
   y `focusable="false"`.
 - Cada `section` se asocia a su encabezado con `aria-labelledby`; el `nav` lleva `aria-label` y el
   enlace activo, `aria-current="page"`.
@@ -220,11 +226,15 @@ primer contacto con la herramienta.
 
 **Qué revisé y adapté con mi propio criterio:**
 
-- **Contenido y datos reales.** Definí yo qué proyectos mostrar (tuConsulta.com.ar, seprice-turnos,
-  seprice-api, club-deportivo-mobile y club-deportivo-dotnet), qué tecnologías listar según lo que
+- **Contenido y datos reales.** Definí yo qué proyectos mostrar (tuConsulta.com.ar, estas-invitado.click,
+  seprice-turnos, seprice-api, club-deportivo-mobile y club-deportivo-dotnet), qué tecnologías listar según lo que
   realmente uso, y qué datos de contacto se publican y cuáles no: descarté publicar mi teléfono en un
   repositorio público.
   Ningún dato del sitio es genérico ni inventado; todo sale de mi CV y de mis repositorios.
+  Uno de los proyectos, estas-invitado.click, fue construido íntegramente con IA (Claude Code); en
+  lugar de omitirlo, la tarjeta lo declara de forma explícita y su stack no se suma a Habilidades.
+  Por la misma razón, el trabajo con agentes figura como habilidad propia en la sección Habilidades
+  ("Desarrollo asistido por IA"): es una herramienta que uso a diario y con criterio, no un atajo.
 - **Revisión del código generado.** Leí el HTML y el CSS antes de aceptarlos, probé el sitio en el
   navegador y pedí ajustes cuando algo no me cerraba, por ejemplo el comportamiento del encabezado
   fijo en pantallas chicas. También fijé restricciones propias sobre el resultado: estilo claro y
@@ -235,7 +245,8 @@ primer contacto con la herramienta.
 web y se le corrigió el balance de blancos, porque la original tenía luz mixta: la pared cálida y mi
 cara con un dominante azulado. La corrección es un ajuste clásico de ganancia por canal aplicado con
 un script de Pillow, no un retoque con IA generativa. **No hay imágenes generadas ni recreadas con
-IA en este proyecto.** La captura de tuConsulta.com.ar es del sitio real que desarrollé.
+IA en este proyecto.** Las capturas de tuConsulta.com.ar y de estas-invitado.click son de los sitios
+reales que desarrollé.
 
 ---
 
